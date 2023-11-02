@@ -41,6 +41,9 @@ const NewToDoInput = styled.input`
   font-size: 18px;
   &::placeholder {
     font-size: 16px;
-    color: #979797;
+    color: var(--gray400-color);
+  }
+  &:focus {
+    border: 1px solid var(--gray500-color);
   }
 `;
