@@ -3,7 +3,8 @@ import { Categories, IToDo } from '../interface';
 import styled from 'styled-components';
 import { useRecoilState } from 'recoil'; // Update from useSetRecoilState to useRecoilState
 import { todoState } from '../atoms/todoAtom';
-
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTrash } from '@fortawesome/free-solid-svg-icons';
 export default function TodoItems({ text, category, id }: IToDo) {
   const [toDos, setToDos] = useRecoilState(todoState);
 
@@ -44,7 +45,10 @@ export default function TodoItems({ text, category, id }: IToDo) {
                 Done
               </Button>
             )}
-            <Button onClick={onDelete}>Delete</Button>
+            <Button onClick={onDelete}>
+              {' '}
+              <FontAwesomeIcon icon={faTrash} />
+            </Button>
           </TodoButtonContainer>
         </TodoItemStyle>
       </TodoItemList>
@@ -52,7 +56,9 @@ export default function TodoItems({ text, category, id }: IToDo) {
   );
 }
 
-const TodoItemList = styled.ul``;
+const TodoItemList = styled.ul`
+  margin: 0 70px 10px 0;
+`;
 
 const TodoItemStyle = styled.li`
   display: flex;
@@ -60,10 +66,10 @@ const TodoItemStyle = styled.li`
   align-items: center;
   min-width: 500px;
   gap: 20px;
-  background-color: ${(props) => props.theme.bgAccentColor};
+  background-color: ${(props) => props.theme.accentColor};
   padding: 10px;
   padding-left: 35px;
-  margin-bottom: 10px;
+
   border: 1px solid lightgray;
   border-radius: 15px;
   word-break: break-all;
@@ -81,20 +87,21 @@ const TodoItemStyle = styled.li`
 
 export const TodoText = styled.span`
   flex-grow: 1;
-
-  /* box-shadow: 0 0 10px inset green; */
 `;
 
 const TodoButtonContainer = styled.div``;
 
 export const Button = styled.button`
   padding: 8px 12px;
-  border: none;
   border-radius: 5px;
+  font-family: 'Pretendard-Medium';
   cursor: pointer;
-  transition: all 0.3s ease;
+  box-sizing: border-box;
+  background-color: white;
+  border: 1px solid var(--gray200-color);
+  transition: all 0.2s ease;
   margin-left: 10px;
   &:hover {
-    background-color: #f0f0f0;
+    background-color: var(--gray200-color);
   }
 `;
