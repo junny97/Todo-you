@@ -1,7 +1,7 @@
 import React from 'react';
 import { Categories, IToDo } from '../interface';
 import styled from 'styled-components';
-import { useRecoilState } from 'recoil'; // Update from useSetRecoilState to useRecoilState
+import { useRecoilState } from 'recoil';
 import { todoState } from '../atoms/todoAtom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrash } from '@fortawesome/free-solid-svg-icons';

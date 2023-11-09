@@ -1,4 +1,4 @@
-import { GlobalStyle } from './styles/globalStyle';
+import GlobalStyle from './styles/globalStyle';
 import ToDoList from './components/TodoList';
 function App() {
   return (
